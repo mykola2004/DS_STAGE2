@@ -1,7 +1,8 @@
 1. 
 docker build -t project .
 2. 
-docker run -it -v ${PWD}:/app project
+docker run -it -v ${PWD}/data:/data project
+
 
 3. connect with vs code: ctrl+shft+P , then choose 
 4. install extnesions pyhton, Dev Containers and Docker by Microsoft
