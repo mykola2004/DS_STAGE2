@@ -1,12 +1,12 @@
-1. 
+
 docker build -t project .
-2. 
-docker run -it -v ${PWD}/data:/data project
 
+docker run -it -v ${PWD}/src:/app/src --entrypoint bash project
 
-3. connect with vs code: ctrl+shft+P , then choose 
-4. install extnesions pyhton, Dev Containers and Docker by Microsoft
-5. check if everything is working with code: 
+#to copy data folder from container to your local machine use command:
+docker cp my_temp_container:/app/data ./data
+
+#check if everything is working with code: 
 
 ''
 import transformers
@@ -23,4 +23,4 @@ df = pd.read_csv(pathway)
 print(df.head())
 ''
 
-6. you are able to run the code in terminal using python train.py
+#you are able to run the code in terminal using python train.py

@@ -25,4 +25,4 @@ RUN python data_loader/data_load.py
 
 COPY --chown=appuser src/ ./src/
 
-CMD ["bash"]
+CMD ["python", "data_loader/data_load.py", "bash"]

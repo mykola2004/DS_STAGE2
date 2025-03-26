@@ -3,7 +3,7 @@ import torch
 import pandas as pd
 import sklearn
 
-print("Hello!9999999999999999999")
+print("Hello!0")
 
 pathway = "../data/train.csv"
 
