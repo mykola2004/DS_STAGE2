@@ -20,8 +20,9 @@ RUN useradd -ms /bin/bash appuser && \
 COPY --chown=appuser requirements.txt ./
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-COPY --chown=appuser src/ ./src/
-COPY --chown=appuser data/ ./data/
+COPY --chown=appuser data_loader/ ./data_loader/
+RUN python data_loader/data_load.py
 
-# Default shell
+COPY --chown=appuser src/ ./src/
+
 CMD ["bash"]
