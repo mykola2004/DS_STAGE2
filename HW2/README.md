@@ -21,7 +21,7 @@ Now, the project is fully set up in a container.
 
 Structure of project on your local machine:
 ```
-HW2
+app
 ├── data_loader          # Script that automatically loads data (runs automatically while building an image)
 │   └── data_load.py        
 ├── src                  # Here will be stored future script files of project
