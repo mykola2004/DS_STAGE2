@@ -1,9 +1,8 @@
-import os
-import gdown
+import pandas as pd
 
-os.makedirs("/data", exist_ok=True)
+filepath = "/app/data/iris.csv"
 
-folder_id = "1X_qEe5ihHrdF_sWsnSuLw22s4Su7ZLMg?usp=sharing"
-url = f"https://drive.google.com/drive/folders/{folder_id}"
+df = pd.read_csv("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv")
+df.to_csv(filepath, index=False)
 
-gdown.download_folder(url=url, output="/app/data", quiet=False, use_cookies=False)
+print("Loaded data")

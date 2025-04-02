@@ -14,15 +14,7 @@ RUN apt-get update && apt-get install -y \
     nano \
     && rm -rf /var/lib/apt/lists/*
 
-RUN useradd -ms /bin/bash appuser && \
-    chown -R appuser /app
+COPY requirements.txt ./
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
-COPY --chown=appuser requirements.txt ./
-RUN pip install --upgrade pip && pip install -r requirements.txt
-
-COPY --chown=appuser data_loader/ ./data_loader/
-RUN python data_loader/data_load.py
-
-COPY --chown=appuser src/ ./src/
-
-CMD ["python", "data_loader/data_load.py", "bash"]
+CMD ["bash"]
