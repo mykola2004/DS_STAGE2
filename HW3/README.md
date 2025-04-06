@@ -1,6 +1,5 @@
 To launch the project, use following commands in terminal opened from project's main repository:
 - docker-compose up -d  
-next: 
 - docker exec -it mlflow-client bash
 
 In opened bash, run:  
