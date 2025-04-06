@@ -3,7 +3,7 @@ To launch the project, use following commands in terminal opened from project's 
 
 2. docker exec -it mlflow-client bash
 
-In opened bash, run:
+In opened bash, run:  
 3.  python ./src/run_experiments.py
 
 now, you can check completed experiments, visiting: http://localhost:5000
