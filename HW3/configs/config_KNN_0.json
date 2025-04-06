@@ -1,0 +1,6 @@
+{
+    "model": "KNeighborsClassifier",
+    "params": {"n_neighbors": 10},
+    "features": ["mean radius", "mean texture", "mean perimeter"],
+    "random_state": 1
+}

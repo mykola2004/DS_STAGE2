@@ -1,0 +1,6 @@
+{
+    "model": "LogisticRegression",
+    "params": {"max_iter": 50},
+    "features": ["mean radius", "mean texture", "mean perimeter"],
+    "random_state": 1
+}

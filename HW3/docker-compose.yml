@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  mlflow:
+    image: ghcr.io/mlflow/mlflow
+    container_name: mlflow-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/mlflow/mlruns
+    command: mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root /mlflow/mlruns --host 0.0.0.0
+
+  client:
+    build:
+      context: .
+    container_name: mlflow-client
+    depends_on:
+      - mlflow
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    volumes:
+      - ./src:/app/src
+      - ./release:/app/release
+      - ./configs:/app/configs
+      - ./mlruns:/mlflow/mlruns
+    command: tail -f /dev/null
