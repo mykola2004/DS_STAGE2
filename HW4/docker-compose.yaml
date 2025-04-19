@@ -12,9 +12,6 @@ services:
       AIRFLOW__CORE__EXECUTOR: SequentialExecutor
       AIRFLOW_USERNAME: admin
       AIRFLOW_PASSWORD: admin
-      AIRFLOW_EMAIL: admin@example.com
-      AIRFLOW_FIRSTNAME: admin
-      AIRFLOW_LASTNAME: admin
     volumes:
       - ./dags:/opt/airflow/dags
       - ./data:/opt/airflow/data
