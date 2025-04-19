@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  airflow:
+    image: apache/airflow:2.9.1
+    container_name: airflow
+    restart: always
+    ports:
+      - "8080:8080"
+    env_file: .env
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW_USERNAME: admin
+      AIRFLOW_PASSWORD: admin
+      AIRFLOW_EMAIL: admin@example.com
+      AIRFLOW_FIRSTNAME: admin
+      AIRFLOW_LASTNAME: admin
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./requirements.txt:/requirements.txt
+      - ./data_loader:/opt/airflow/data_loader
+    command: >
+      bash -c "
+        pip install -r /requirements.txt &&
+        python /opt/airflow/data_loader/data_loader.py &&
+        airflow standalone
+      "
