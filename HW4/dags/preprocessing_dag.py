@@ -32,4 +32,4 @@ with DAG(
     t9  = PythonOperator(task_id="split"             , python_callable=split)
     t10 = PythonOperator(task_id="vectorize_reviews" , python_callable=vectorize_reviews)
 
-    t1 >> t2 >> t3 >> t4 >> t5 >> t6 >> t7 >> t8 >> t9
+    t1 >> t2 >> t3 >> t4 >> t5 >> t6 >> t7 >> t8 >> t9 >> t10
