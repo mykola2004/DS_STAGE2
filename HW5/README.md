@@ -2,8 +2,7 @@
 docker-compose up --build
 
 2. In order to test flask server open another command prompt window and run command: 
-Invoke-RestMethod -Uri http://localhost:5000/predict -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"features": [5.1, 3.5, 14, 9.0]}'
-
+Invoke-RestMethod -Uri http://localhost:5000/predict -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"features": [5.1, 3.5, 14, 9.0]}' 
 or for powershell:
 Invoke-RestMethod -Uri http://localhost:5000/predict -Method POST -Body '{"features": [5.1, 3.5, 1.4, 9.0]}' -ContentType "application/json"
 
