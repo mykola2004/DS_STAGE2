@@ -1,5 +1,4 @@
 version: "3.9"
-
 services:
   iris:
     build: .
@@ -8,10 +7,3 @@ services:
     volumes:
       - .:/app
     working_dir: /app
-    command: >
-      sh -c "
-        pip install -e . &&
-        pip install -r requirements.txt &&
-        cron &&
-        python rest_api/app.py
-      "
