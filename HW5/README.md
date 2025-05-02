@@ -9,5 +9,5 @@ Invoke-RestMethod -Uri http://localhost:5000/predict -Method POST -Body '{"featu
 3. To test batch model deployment just check folder /batch_deployment locally, every minute file output.csv will be updated wih predictions corresponding to input values(file input.csv)
 
 
-In order to run tests, 1 run rest_api/app.py file, then open in root directory of the project command prompt and run: 
+In order to run tests, firstly run rest_api/app.py file, then open in root directory of the project command prompt and run: 
 pytest tests/
