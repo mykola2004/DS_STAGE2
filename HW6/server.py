@@ -5,8 +5,8 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-MODEL_DIR = os.path.join(os.path.dirname(__file__), 'model')
-MODEL_PATH = os.path.join(MODEL_DIR, 'model.joblib')
+MODEL_DIR   = os.path.join(os.path.dirname(__file__), 'model')
+MODEL_PATH  = os.path.join(MODEL_DIR, 'model.joblib')
 SCALER_PATH = os.path.join(MODEL_DIR, 'scaler.joblib')
 
 model = joblib.load(MODEL_PATH)
