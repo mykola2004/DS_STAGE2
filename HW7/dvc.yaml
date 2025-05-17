@@ -1,0 +1,31 @@
+stages:
+  clean:
+    cmd: python src/clean.py data/dataset.csv data/clean.csv
+    deps:
+    - data/dataset.csv
+    - src/clean.py
+    outs:
+    - data/clean.csv
+  stem:
+    cmd: python src/stem.py data/clean.csv data/stem.csv
+    deps:
+    - data/clean.csv
+    - src/stem.py
+    outs:
+    - data/stem.csv
+  vectorize:
+    cmd: python src/vectorize.py data/stem.csv data/X.npy
+    deps:
+    - data/stem.csv
+    - src/vectorize.py
+    outs:
+    - data/X.npy
+  split:
+    cmd: python src/split.py data/stem.csv data/X.npy data/train.npz data/test.npz
+    deps:
+    - data/X.npy
+    - data/stem.csv
+    - src/split.py
+    outs:
+    - data/test.npz
+    - data/train.npz

@@ -1,0 +1,74 @@
+schema: '2.0'
+stages:
+  clean:
+    cmd: python src/clean.py data/dataset.csv data/clean.csv
+    deps:
+    - path: data/dataset.csv
+      hash: md5
+      md5: a57ebd7376e5e71c84aedc1205c300dc
+      size: 53054376
+    - path: src/clean.py
+      hash: md5
+      md5: 71e94f1fd4a3ad8aa4d9d0d3cf761ec6
+      size: 941
+    outs:
+    - path: data/clean.csv
+      hash: md5
+      md5: 54c85d87faa61bdd2533dcc15820401a
+      size: 47990883
+  stem:
+    cmd: python src/stem.py data/clean.csv data/stem.csv
+    deps:
+    - path: data/clean.csv
+      hash: md5
+      md5: 54c85d87faa61bdd2533dcc15820401a
+      size: 47990883
+    - path: src/stem.py
+      hash: md5
+      md5: 999736cddc708b420b0789c53c416220
+      size: 681
+    outs:
+    - path: data/stem.csv
+      hash: md5
+      md5: 85462643f0dba89435bf1fa1a166c23e
+      size: 90464715
+  vectorize:
+    cmd: python src/vectorize.py data/stem.csv data/X.npy
+    deps:
+    - path: data/stem.csv
+      hash: md5
+      md5: 85462643f0dba89435bf1fa1a166c23e
+      size: 90464715
+    - path: src/vectorize.py
+      hash: md5
+      md5: 044ffa2b4240179512210379d8fb2c10
+      size: 462
+    outs:
+    - path: data/X.npy
+      hash: md5
+      md5: e47c0ff2efb1ad3f9d0d6d0786c389e4
+      size: 1589120128
+  split:
+    cmd: python src/split.py data/stem.csv data/X.npy data/train.npz data/test.npz
+    deps:
+    - path: data/X.npy
+      hash: md5
+      md5: e47c0ff2efb1ad3f9d0d6d0786c389e4
+      size: 1589120128
+    - path: data/stem.csv
+      hash: md5
+      md5: 85462643f0dba89435bf1fa1a166c23e
+      size: 90464715
+    - path: src/split.py
+      hash: md5
+      md5: 90d08a29edefdf06de250999e82058ed
+      size: 534
+    outs:
+    - path: data/test.npz
+      hash: md5
+      md5: 8cbed587a4b15ec6338500afe1b50271
+      size: 317904058
+    - path: data/train.npz
+      hash: md5
+      md5: acf3f9714780224262ac770473b33fe3
+      size: 1271534746
