@@ -72,3 +72,24 @@ stages:
       hash: md5
       md5: acf3f9714780224262ac770473b33fe3
       size: 1271534746
+  train_evaluate:
+    cmd: python src/train_evaluate.py data/train.npz data/test.npz eval/metrics.csv
+    deps:
+    - path: data/test.npz
+      hash: md5
+      md5: 8cbed587a4b15ec6338500afe1b50271
+      size: 317904058
+    - path: data/train.npz
+      hash: md5
+      md5: acf3f9714780224262ac770473b33fe3
+      size: 1271534746
+    - path: src/train_evaluate.py
+      hash: md5
+      md5: 3a9daf425c31245a218d316c4ccd134d
+      size: 660
+    outs:
+    - path: eval/metrics.csv
+      hash: md5
+      md5: 196ebb2a8354975b4116adec868610a2
+      size: 58
+
