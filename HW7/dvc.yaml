@@ -29,3 +29,12 @@ stages:
     outs:
     - data/test.npz
     - data/train.npz
+  train_evaluate:
+    cmd: python src/train_evaluate.py data/train.npz data/test.npz eval/metrics.csv
+    deps:
+    - data/test.npz
+    - data/train.npz
+    - src/train_evaluate.py
+    metrics:
+    - eval/metrics.csv:
+        cache: false
